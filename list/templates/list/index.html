@@ -1,0 +1,6 @@
+<ul>
+  {% for product in all_products %}
+  <a href="{% url 'detail' product.product_id %}"> {{ product.pname }} </a><br>
+  {% endfor %}
+</ul>
+<h3>hello mahn</h3>
