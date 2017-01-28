@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 class Product(models.Model):
     pname = models.CharField(max_length=30)
@@ -12,6 +13,9 @@ class Product(models.Model):
     effective_price = models.FloatField()
     mrp = models.FloatField()
     vat = models.FloatField()
+
+    def get_absolute_url(self):
+        return reverse('list/detail.html',kwargs={'pk':self.product_id})
 
     def __str__(self):
         return self.pname
