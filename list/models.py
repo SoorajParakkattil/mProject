@@ -15,7 +15,7 @@ class Product(models.Model):
     vat = models.FloatField()
 
     def get_absolute_url(self):
-        return reverse('list/detail.html',kwargs={'pk':self.product_id})
+        return reverse('detail',kwargs={'pk':self.product_id})
 
     def __str__(self):
         return self.pname

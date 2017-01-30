@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+#login redirection
+LOGIN_REDIRECT_URL = 'index'
 # Application definition
 
 INSTALLED_APPS = [
