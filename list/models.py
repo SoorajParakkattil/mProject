@@ -43,9 +43,13 @@ class User(models.Model):
     adm_no = models.IntegerField(primary_key=True)
     phone_no = models.IntegerField()
     cbid = models.ForeignKey(Batch, on_delete=models.CASCADE)
+    password = models.CharField(max_length = 100)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('detail',kwargs={'pk':self.adm_no})
 
 
 class Bill(models.Model):

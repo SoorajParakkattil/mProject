@@ -1,0 +1,107 @@
+
+{% extends 'list/base.html' %}<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+{% load static %}
+	<title>Login/Signup</title>
+
+	<!-- Meta-Tags -->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<!-- //Meta-Tags -->
+
+	<!-- Style --> <link rel="stylesheet" href="{% static 'list/stylelogin.css' %}" type="text/css" media="all">
+
+	<!-- Fonts -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+{% block nav %}
+<!-- Style --> <link rel="stylesheet" href="{% static 'list/stylelogin.css' %}" type="text/css" media="all">
+
+<!-- Fonts -->
+	<link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<!-- //Fonts -->
+	<h1>mStore</h1>
+
+	<div class="container w3layouts agileits">
+
+		<div class="login w3layouts agileits">
+			<h2>Sign In</h2>
+
+			<form action="/products/login" method="post">
+			      {%csrf_token%}
+				<input type = "text" name = "username" placeholder="admission no." value = "{{form.username}}" required="">
+				<input type = "password" name = "password" value = "{{form.password}}" placeholder="Password" required="">
+
+			<div class="send-button w3layouts agileits">
+					<input type="submit" value="Sign In">
+			</div>
+				</form>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<a href="/app/forpass">Forgot Password?</a>
+			<div class="social-icons w3layouts agileits">
+			<p>-{{loginmessage}}-</p>
+				<!--
+				<p>- Or Sign In With -</p>
+				<ul>
+					<li><a href="#"><span class="icons w3layouts agileits"></span><span class="text w3layouts agileits">Facebook</span></a></li>
+					<li class="twt w3ls"><a href="#"><span class="icons w3layouts"></span><span class="text w3layouts agileits">Twitter</span></a></li>
+					<li class="ggp aits"><a href="#"><span class="icons agileits"></span><span class="text w3layouts agileits">Google+</span></a></li>
+					<div class="clear"> </div>
+				</ul>
+				-->
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="register w3layouts agileits">
+			<h2>Sign Up</h2>
+
+			<form action="products/signup" method="post">
+				 {%csrf_token%}
+				<input input type = 'text' name = "name" value = "{{name}}" placeholder="Name" required="">
+				<input type = 'text' name = "email" value = "{{adm_no}}" placeholder="Email" required="">
+				<input type = 'password' name = "password" placeholder="Password" required="">
+				<input type = 'text' name = "phonenumber" value = "{{phonenumber}}" placeholder="Phone Number" required="">
+				<input type = 'text' name = "cbid" value = "{{cbid}}" placeholder="class" required="">
+			<div class="send-button w3layouts agileits">
+					<input type="submit" value="Sign Up">
+				</form>
+				<div class="social-icons w3layouts agileits">
+			<p>-{{signupmessage}}-</p>
+			</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+
+{% endblock nav %}
+</body>
+<!-- //Body -->
+
+</html>
