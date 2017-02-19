@@ -4,17 +4,31 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login
 from .forms import UserForms
+from django.contrib.auth import logout as auth_logout
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+
 """from django.views.generic import views"""
 
-class IndexView(generic.ListView):
-    template_name='list/index.html'
-    context_object_name='all_products'
 
-    def get_queryset(self):
-        return Product.objects.all()
+
+'''def IndexView(request):
+    try:
+        id = request.session['logid']
+    except Exception:
+        return render(request,'list/login.html',{'loginmessage' : 'Please Login to Continue'  })
+    proList=Product.objects.all()
+    return render(request, 'list/index.html',{'proList': proList })'''
+def IndexView(request):
+    try:
+        id = request.session['logid']
+    except Exception:
+        return render(request,'list/login.html',{'loginmessage' : 'Please Login to Continue'  })
+    proList=Product.objects.all()
+    return render(request, 'list/index_admin.html',{'proList': proList })
+
+
 
 class DetailView(generic.DetailView):
 
@@ -33,18 +47,27 @@ class ProductDelete (DeleteView):
     success_url=reverse_lazy('index')
 
 def login(request):
-    return render(request, 'list/login.html')
+    return render(request, 'list/cart.html')
 
-class Signup (CreateView):
+def logout(request):
+    auth_logout(request)
+    return redirect('/products')
+
+def cart(request):
+    proList=Product.objects.all()
+
+    return render(request, 'list/cart.html',{'proList': proList })
+
+'''class Signup (CreateView):
     model=User
-    fields=['name','adm_no','phone_no','password','cbid']
+    fields=['name','adm_no','phone_no','password','cbid']'''
 def signup(request):
 	return render(request, 'list/signup.html' )
 
-def logout(request):
+'''def logout(request):
     request.session['logid'] = ''
     request.session['vericode'] = ''
-    return HttpResponseRedirect('/app')
+    return HttpResponseRedirect('/app')'''
 
 def loginprocess(request):
 	adm_no =  request.POST.get("username","")
@@ -77,7 +100,7 @@ def signupprocess(request):
     val=1
     batch = Batch.objects.all()
     for i in batch:
-        if(i.cbid == cbid):val = val=0;break
+        if(i.cbid == cbid): val=0;break
     dict = {'name' : name , 'batch': batch , 'phonenumber' : cbid,'cbid' : phone,'adm_no' : adm_no, 'message' : 'Error'}
     if(password == '' or  password.__len__() >= 100 or password.__len__() <= 7):
         dict['signupmessage'] = "Enter a valid password ** It should contain more than 7 charecters ** "

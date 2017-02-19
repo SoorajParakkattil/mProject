@@ -1,0 +1,55 @@
+{% extends 'list/base.html' %}
+{% block nav  %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}" />
+<div class="container">
+
+
+  <h2>inventory list</h2>
+  <p>admin pag where thew will review stock</p>
+  <a class="btn btn-large btn-primary col-md-3" href="/products/add">
+  <i class=" icon-plus"></i> add new</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>product</th>
+        <th>price</th>
+        <th>Email</th>
+        <th>
+          stock
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for product in proList %}
+      <tr>
+        <td class= <div class="col-md-2">
+
+        </div>{{ product.pname }}({{product.product_id}})</td>
+        <td class="col-md-1">{{product.price}}</td>
+        <td>
+          {{product.quantity}}
+        </td>
+        <td>{{product.expiry}}</td>
+        <td>
+          <a href="{% url 'detail' product.product_id %}"class="btn btn-primary  icon-chevron-sign-up" role="button">  view</a><a href="/products/{{product.product_id}}/update" class="btn btn-primary  icon-retweet" role="button">  update</a><a href="/products/{{product.product_id}}/delete" class="btn btn-primary  icon-remove" role="button">  delete</a>
+        </td>
+      </tr>
+        {%endfor%}
+
+    </tbody>
+  </table>
+</div>
+
+
+<!-- follow me template -->
+
+
+
+
+  </div>
+
+
+
+</div>
+{% endblock  %}

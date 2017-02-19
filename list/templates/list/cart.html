@@ -1,0 +1,57 @@
+{% extends 'list/base.html' %}
+{% block tittle %}Cart{% endblock tittle %}
+{% block nav %}
+
+
+<select name='p1'>
+  {%for i in proList%}
+
+  <option value="{{i.pname}}1">{{i.pname}}</option>
+  {%endfor%}
+</select>
+<br/>
+<select name='p2'>
+  {%for i in proList%}
+
+  <option value="{{i.pname}}2">{{i.pname}}</option>
+  {%endfor%}
+</select>
+<br/>
+<select>
+  {%for i in proList%}
+
+  <option value="{{i.pname}}">{{i.pname}}</option>
+  {%endfor%}
+</select>
+<br/>
+<select>
+  {%for i in proList%}
+
+  <option value="{{i.pname}}">{{i.pname}}</option>
+  {%endfor%}
+</select>
+<br/>
+<select>
+  {%for i in proList%}
+
+  <option value="{{i.pname}}">{{i.pname}}</option>
+  {%endfor%}
+</select>
+<br/>
+<select>
+  {%for i in proList%}
+
+  <option value="{{i.pname}}">{{i.pname}}</option>
+  {%endfor%}
+</select>
+<br/>
+<select>
+  {%for i in proList%}
+
+  <option value="{{i.pname}}">{{i.pname}}</option>
+  {%endfor%}
+</select>
+<br/>
+<button type="button" class="btn btn-warning">buy</button>
+
+{% endblock nav %}

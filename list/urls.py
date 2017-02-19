@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # ex: /polls/
-    url(r'^$', views.IndexView.as_view() , name='index'),
+    url(r'^$', views.IndexView, name='index'),
 
      #product/product_id
        url(( r'^(?P<pk>[0-9]+)/$'), views.DetailView.as_view(), name='detail'),
@@ -23,4 +23,8 @@ urlpatterns = [
       url(r'logout' , views.logout , name='logout'),
       #processing login
       url(r'login',views.loginprocess , name = 'loginprocess'),
+
+     #cart
+
+     url(r'cart' , views.cart , name='cart'),
 ]

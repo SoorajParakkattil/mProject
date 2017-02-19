@@ -1,9 +1,24 @@
 {% extends 'list/base.html' %}
 {% block nav  %}
 <ul>
-  {% for product in all_products %}
-  <a href="{% url 'detail' product.product_id %}"> {{ product.pname }} </a><br>
+  {% for product in proList %}
+
+  <div class="">
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <!<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/HP_Pavilion_dv2500se.jpg/220px-HP_Pavilion_dv2500se.jpg" alt="...">
+        <div class="caption">
+          <h3>{{ product.pname }}</h3>
+          <p>"{{product.price}}"...</p>
+          <p><a href="{% url 'detail' product.product_id %}" class="btn btn-primary" role="button">Button</a><a href="/products/{{product.product_id}}/update" class="btn btn-primary" role="button">update</a><a href="/products/{{product.product_id}}/delete" class="btn btn-primary" role="button">delete</a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
   {% endfor %}
 </ul>
 <a href="/products/add">add</a>
+
+
+
 {% endblock  %}
