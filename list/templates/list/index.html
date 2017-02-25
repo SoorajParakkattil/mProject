@@ -10,14 +10,18 @@
         <div class="caption">
           <h3>{{ product.pname }}</h3>
           <p>"{{product.price}}"...</p>
-          <p><a href="{% url 'detail' product.product_id %}" class="btn btn-primary" role="button">Button</a><a href="/products/{{product.product_id}}/update" class="btn btn-primary" role="button">update</a><a href="/products/{{product.product_id}}/delete" class="btn btn-primary" role="button">delete</a> </p>
+          <p><a href="{% url 'addcart' product.product_id %}" class="btn btn-primary  icon-shopping-cart" role="button">add to cart</a></p>
         </div>
       </div>
     </div>
   </div>
+  
+
+  </button>
+
+</div>
   {% endfor %}
-</ul>
-<a href="/products/add">add</a>
+
 
 
 

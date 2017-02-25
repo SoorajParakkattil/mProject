@@ -1,9 +1,11 @@
 {% extends 'list/base.html' %}
 {% block nav  %}
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}" />
+<!<link rel="stylesheet" type="text/css" href="{% static 'list/style.css' %}" />
 <div class="container">
 
+  <a class="btn btn-large btn-primary col-md-3" href="/products/orders">
+  <i class=" icon-plus"></i> orders</a><br /><br />
 
   <h2>inventory list</h2>
   <p>admin pag where thew will review stock</p>

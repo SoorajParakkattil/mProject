@@ -1,0 +1,55 @@
+{% extends 'list/base.html' %}
+{% block nav  %}
+<a class="btn btn-large btn-primary col-md-3" href="/products/orders_new">
+<i class=" icon-plus"></i> all orders</a><br /><br />
+<h1>New Orders</h1>
+<h3>the unresponded new orders from users</h3>
+{%for pu in p%}
+
+{%if pu.responded == 1 %}
+{%for us in u%}
+{%if pu.adm_no == us %}
+
+<h4>{{us.name}}</h4>
+<p>
+  phone no: {{us.phone_no}}
+</p>
+<br />
+
+{%endif%}
+{%endfor%}
+<h4>order deatils:</h4>
+<p>
+  {{pu.remarks}}
+</p>
+<h4>response: {{pu.response}}</h4>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>product</th>
+        <th>price of single unit</th>
+        <th>quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for i in l%}
+      {%if i.purch_id == pu%}
+      <tr>
+          {%for j in product%}
+          {%if i.product_id == j%}
+        <td>{{j.pname}}</td>
+        <td>{{j.price}}</td>
+        <td>{{i.quantity}}</td>
+        {%endif%}
+        {%endfor%}
+      </tr>
+      {%endif%}
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+{%endif%}
+{%endfor%}
+{% endblock  %}

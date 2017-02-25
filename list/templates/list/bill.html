@@ -1,0 +1,143 @@
+{% extends 'list/base.html' %}
+{% block tittle %}bill{% endblock tittle %}
+{% block nav %}
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>product</th>
+        <th>price of single unit</th>
+        <th>quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+
+        <td> <select class="form-control" id="sel1">
+          {%for p in product%}
+        <option>{{p.pname}}</option>
+
+      {%endfor%}
+    </select></td><br />
+        <td>{{p.price}}</td>
+        <td>{{p.quantity}}</td>
+
+      </tr>
+      <td> <select class="form-control" id="sel1">
+        {%for p in product%}
+      <option>{{p.pname}}</option>
+
+    {%endfor%}
+  </select></td><br />
+      <td>{{p.price}}</td>
+      <td>{{p.quantity}}</td>
+
+    </tr>    <td> <select class="form-control" id="sel1">
+          {%for p in product%}
+        <option>{{p.pname}}</option>
+
+      {%endfor%}
+    </select></td><br />
+        <td>{{p.price}}</td>
+        <td>{{p.quantity}}</td>
+
+      </tr>    <td> <select class="form-control" id="sel1">
+            {%for p in product%}
+          <option>{{p.pname}}</option>
+
+        {%endfor%}
+      </select></td><br />
+          <td>{{p.price}}</td>
+          <td>{{p.quantity}}</td>
+
+        </tr>    <td> <select class="form-control" id="sel1">
+              {%for p in product%}
+            <option>{{p.pname}}</option>
+
+          {%endfor%}
+        </select></td><br />
+            <td>{{p.price}}</td>
+            <td>{{p.quantity}}</td>
+
+          </tr>    <td> <select class="form-control" id="sel1">
+                {%for p in product%}
+              <option>{{p.pname}}</option>
+
+            {%endfor%}
+          </select></td><br />
+              <td>{{p.price}}</td>
+              <td>{{p.quantity}}</td>
+
+            </tr>    <td> <select class="form-control" id="sel1">
+                  {%for p in product%}
+                <option>{{p.pname}}</option>
+
+              {%endfor%}
+            </select></td><br />
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+
+              </tr>    <td> <select class="form-control" id="sel1">
+                    {%for p in product%}
+                  <option>{{p.pname}}</option>
+
+                {%endfor%}
+              </select></td><br />
+                  <td>{{p.price}}</td>
+                  <td>{{p.quantity}}</td>
+
+                </tr>    <td> <select class="form-control" id="sel1">
+                      {%for p in product%}
+                    <option>{{p.pname}}</option>
+
+                  {%endfor%}
+                </select></td><br />
+                    <td>{{p.price}}</td>
+                    <td>{{p.quantity}}</td>
+
+                  </tr>    <td> <select class="form-control" id="sel1">
+                        {%for p in product%}
+                      <option>{{p.pname}}</option>
+
+                    {%endfor%}
+                  </select></td><br />
+                      <td>{{p.price}}</td>
+                      <td>{{p.quantity}}</td>
+
+                    </tr>    <td> <select class="form-control" id="sel1">
+                          {%for p in product%}
+                        <option>{{p.pname}}</option>
+
+                      {%endfor%}
+                    </select></td><br />
+                        <td>{{p.price}}</td>
+                        <td>{{p.quantity}}</td>
+
+                      </tr>    <td> <select class="form-control" id="sel1">
+                            {%for p in product%}
+                          <option>{{p.pname}}</option>
+
+                        {%endfor%}
+                      </select></td><br />
+                          <td>{{p.price}}</td>
+                          <td>{{p.quantity}}</td>
+
+                        </tr>    <td> <select class="form-control" id="sel1">
+                              {%for p in product%}
+                            <option>{{p.pname}}</option>
+
+                          {%endfor%}
+                        </select></td><br />
+                            <td>{{p.price}}</td>
+                            <td>{{p.quantity}}</td>
+
+                          </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock nav %}

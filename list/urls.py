@@ -14,17 +14,28 @@ urlpatterns = [
 
       url(r'^(?P<pk>[0-9]+)/delete/$', views.ProductDelete.as_view() , name='productdel'),
       #login page redirectin
-      url(r'loginpage',views.login , name='login'),
+      url(r'^loginpage',views.login , name='login'),
       #signup processing
-      url(r'signup',views.signupprocess , name='signupprocess'),
+      url(r'^signup',views.signupprocess , name='signupprocess'),
       #Signup page
-      url(r'signuppage',views.signup , name='signup'),
+      url(r'^signuppage',views.signup , name='signup'),
       #logout page
-      url(r'logout' , views.logout , name='logout'),
+      url(r'^logout' , views.logout , name='logout'),
       #processing login
-      url(r'login',views.loginprocess , name = 'loginprocess'),
+      url(r'^login',views.loginprocess , name = 'loginprocess'),
+      #orders
+      url(r'^orders$',views.order , name = 'order'),
+      url(r'^orders_new$',views.order_new , name = 'order_new'),
+
+      url(r'^bill$',views.bill , name = 'bill'),
 
      #cart
 
-     url(r'cart' , views.cart , name='cart'),
+     url(r'^cart' , views.cart , name='cart'),
+
+     #add to cart
+     url(( r'^addcart/(?P<pk>[0-9]+)/$'), views.addcart, name='addcart'),
+     url(( r'^purchase/(?P<pk>[0-9]+)/$'), views.purchase_confirm, name='purchase'),
+     url(( r'^response/(?P<pk>[0-9]+)/$'), views.order_confirm, name='response'),
+     url(( r'^response_change/(?P<pk>[0-9]+)/$'), views.response_change, name='response_change'),
 ]

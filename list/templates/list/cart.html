@@ -3,55 +3,45 @@
 {% block nav %}
 
 
-<select name='p1'>
-  {%for i in proList%}
+<div class="container">
+  <h2>Cart</h2>
+  <p>get your current purchase data</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>product</th>
+        <th>price of single unit</th>
+        <th>quantity</th>
+      </tr>
+    </thead>
+    <tbody>
 
-  <option value="{{i.pname}}1">{{i.pname}}</option>
-  {%endfor%}
-</select>
-<br/>
-<select name='p2'>
-  {%for i in proList%}
+      {%for i in pl%}
+      <tr>
+          {%for j in product%}
+          {%if i.product_id == j%}
+        <td>{{j.pname}}</td>
+        <td>{{j.price}}</td>
+        <td>{{i.quantity}}</td>
+         {%endif%}
+         {%endfor%}
+      </tr>
+      {%endfor%}
 
-  <option value="{{i.pname}}2">{{i.pname}}</option>
-  {%endfor%}
-</select>
-<br/>
-<select>
-  {%for i in proList%}
+    </tbody>
+  </table>
+</div>
 
-  <option value="{{i.pname}}">{{i.pname}}</option>
-  {%endfor%}
-</select>
-<br/>
-<select>
-  {%for i in proList%}
 
-  <option value="{{i.pname}}">{{i.pname}}</option>
-  {%endfor%}
-</select>
-<br/>
-<select>
-  {%for i in proList%}
+<h3 class="col-md-9 col-md-offset-3">total: {{k.total}}</h3>
+<div class="col-md-3 col-md-offset-3">
+    <form accept-charset="UTF-8" action="{% url 'purchase' k.purch_id %}" method="POST">
+      {%csrf_token%}
+        <textarea class="form-control" id="text" name="remarks" placeholder="{{k.remarks}}" rows="5"></textarea>
+        <h6 class="pull-right" id="count_message"></h6>
 
-  <option value="{{i.pname}}">{{i.pname}}</option>
-  {%endfor%}
-</select>
-<br/>
-<select>
-  {%for i in proList%}
-
-  <option value="{{i.pname}}">{{i.pname}}</option>
-  {%endfor%}
-</select>
-<br/>
-<select>
-  {%for i in proList%}
-
-  <option value="{{i.pname}}">{{i.pname}}</option>
-  {%endfor%}
-</select>
-<br/>
-<button type="button" class="btn btn-warning">buy</button>
+        <button class="btn btn-info col-md-3 col-md-offset-3 "<a href="" type="submit">order</button>
+    </form>
+</div>
 
 {% endblock nav %}

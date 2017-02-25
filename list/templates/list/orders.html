@@ -1,0 +1,66 @@
+{% extends 'list/base.html' %}
+{% block nav  %}
+<a class="btn btn-large btn-primary col-md-3" href="/products/orders_new">
+<i class=" icon-plus"></i> all orders</a><br /><br />
+<h1>New Orders</h1>
+<h3>the unresponded new orders from users</h3>
+{%for pu in p%}
+
+{%if pu.responded == 0 %}
+{%for us in u%}
+{%if pu.adm_no == us %}
+
+<h4>{{us.name}}</h4>
+<p>
+  phone no: {{us.phone_no}}
+</p>
+<br />
+
+
+{%endif%}
+{%endfor%}
+<h4>order deatils:</h4>
+<p>
+  {{pu.remarks}}
+</p>
+<br />
+<h3 class="col-md-9 col-md-offset-3">total: {{k.total}}</h3>
+<div class="col-md-3 col-md-offset-3">
+    <form accept-charset="UTF-8" action="{% url 'response' pu.purch_id %}" method="POST">
+      {%csrf_token%}
+        <textarea class="form-control" id="text" name="response" placeholder="{{pu.response}}" rows="5"></textarea>
+        <h6 class="pull-right" id="count_message"></h6>
+
+        <button class="btn btn-info col-md-3 col-md-offset-3 "<a href="" type="submit">deliver</button>
+    </form>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>product</th>
+        <th>price of single unit</th>
+        <th>quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for i in l%}
+      {%if i.purch_id == pu%}
+      <tr>
+          {%for j in product%}
+          {%if i.product_id == j%}
+        <td>{{j.pname}}</td>
+        <td>{{j.price}}</td>
+        <td>{{i.quantity}}</td>
+        {%endif%}
+        {%endfor%}
+      </tr>
+      {%endif%}
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+{%endif%}
+{%endfor%}
+{% endblock  %}
